@@ -8,9 +8,10 @@ import {
   FiLogOut,
   FiX,
 } from "react-icons/fi";
+
 import { useAuth } from "../../Context/AuthContext.jsx";
 import { signOut } from "firebase/auth";
-import { auth } from "../../Firebase/firebase.js";
+import { getAuthInstance } from "../../Firebase/firebase.js";
 
 const Sidebar = ({ onClose }) => {
   const { currentUser } = useAuth();
@@ -45,9 +46,10 @@ const Sidebar = ({ onClose }) => {
 
   const handleLogout = async () => {
     try {
+      const auth = await getAuthInstance();
+
       await signOut(auth);
 
-      // Close mobile sidebar
       onClose?.();
     } catch (error) {
       console.error("Logout error:", error);
@@ -72,6 +74,7 @@ const Sidebar = ({ onClose }) => {
 
         {/* MOBILE CLOSE BUTTON */}
         <button
+          type="button"
           onClick={onClose}
           className="rounded-lg p-2 text-gray-400 hover:bg-slate-800 hover:text-white lg:hidden"
           aria-label="Close sidebar"
@@ -80,7 +83,6 @@ const Sidebar = ({ onClose }) => {
         </button>
 
       </div>
-
 
       {/* NAVIGATION */}
       <nav className="mt-10 flex-1 space-y-2 overflow-y-auto">
@@ -103,21 +105,20 @@ const Sidebar = ({ onClose }) => {
             <span>
               {item.name}
             </span>
-
           </NavLink>
         ))}
 
       </nav>
 
-
       {/* USER + LOGOUT */}
       <div className="mt-5 shrink-0 border-t border-slate-700 pt-5">
 
         <p className="truncate text-sm text-gray-400">
-          {currentUser?.email}
+          {currentUser?.email || "Admin"}
         </p>
 
         <button
+          type="button"
           onClick={handleLogout}
           className="mt-4 flex w-full items-center gap-3 rounded-xl px-4 py-3 text-red-400 transition hover:bg-red-500 hover:text-white"
         >
