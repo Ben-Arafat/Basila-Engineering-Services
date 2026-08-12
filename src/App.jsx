@@ -34,7 +34,7 @@ const TrackRepair = lazy(() => import("./Pages/trackRepair"));
 const Dashboard = lazy(() => import("./Pages/Dashboard"));
 const Booking = lazy(() => import("./Pages/Booking"));
 const BookingDetails = lazy(
-  () => import("./Pages/BookingDetails")
+  () => import("./Pages/bookingDetails")
 );
 
 import AdminDashboard from "./Pages/adminDashboard/adminDashboard";
