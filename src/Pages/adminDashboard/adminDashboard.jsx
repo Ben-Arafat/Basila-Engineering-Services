@@ -1,4 +1,4 @@
-import StatCard from "../../Components/adminDashboard/statCard";
+import StatCard from "../../Components/adminDashboard/statcard";
 import useAdminStats from "../../Hooks/useAdminStats";
 
 
