@@ -14,13 +14,13 @@ import {
 
 import { useAuth } from "./Context/AuthContext.jsx";
 
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/navbar";
 import Preloader from "./Components/preloader";
 
 import AuthModal from "./Components/Auth/AuthModal";
 import ScrollToTop from "./Components/ScrollToTop";
 
-import CustomerDetails from "./Pages/adminDashboard/CustomerDetails";
+import CustomerDetails from "./Pages/adminDashboard/customerDetails";
 
 import { isAdmin } from "./utils/admin";
 import AdminLayout from "./Layout/adminLayout";
@@ -38,10 +38,10 @@ const BookingDetails = lazy(
 );
 
 import AdminDashboard from "./Pages/adminDashboard/adminDashboard";
-import Bookings from "./Pages/adminDashboard/Bookings";
-import Messages from "./Pages/adminDashboard/Messages";
-import Customers from "./Pages/adminDashboard/Customers";
-import Settings from "./Pages/adminDashboard/Settings";
+import Bookings from "./Pages/adminDashboard/bookings";
+import Messages from "./Pages/adminDashboard/messages";
+import Customers from "./Pages/adminDashboard/customers";
+import Settings from "./Pages/adminDashboard/settings";
 
 
 // ======================================================
