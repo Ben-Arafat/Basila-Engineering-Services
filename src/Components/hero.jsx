@@ -10,7 +10,7 @@ const slides = [
   {
     title: "Professional Engineering Services",
     description: "Expert installation, maintenance, and consultation.",
-    image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1600",
+    image: "https://res.cloudinary.com/cwshpuof/image/upload/v1789932863/Emerging_Trends_In_Furniture_Doors_And_Windows_2024_e9f5cu.jpg",
   },
   {
     title: "Clean Energy, Brighter Future",

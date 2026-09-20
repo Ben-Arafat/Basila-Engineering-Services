@@ -1,6 +1,6 @@
-import Navbar from '../Components/navbar';
 import PageHero from "../Components/pageHero";
 import Footer from "../Components/footer";
+import { Link } from "react-router-dom";
 import {
   FaSolarPanel,
   FaBolt,
@@ -26,13 +26,13 @@ const serviceList = [
   },
   {
     icon: <FaBolt />,
-    title: "HVAC & Mechanical Systems Integration",
+    title: "HVAC & Mechanical Services",
     description:
       "We integrate HVAC and mechanical systems to improve comfort, energy efficiency, and seamless operation in residential, commercial, and industrial facilities.",
   },
   {
     icon: <FaBuilding />,
-    title: "Plumbing & Water System",
+    title: "Plumbing & Water Services Design",
     description:
       "We design and install reliable plumbing and water systems that ensure efficient water supply, drainage, and long-lasting performance for every project.",
   },
@@ -41,12 +41,6 @@ const serviceList = [
     title: "Solar Power System Design & Installation",
     description:
       "We design and install reliable plumbing and water systems that ensure efficient water supply, drainage, and long-lasting performance for every project.",
-  },
-  {
-    icon: <FaCogs />,
-    title: "Hybrid Energy System (Solar + Grid + Generator)",
-    description:
-      "We design and integrate hybrid energy systems that combine solar, grid, and generator power for uninterrupted, efficient, and cost-effective energy supply.",
   },
   {
     icon: <FaHardHat />,
@@ -72,6 +66,12 @@ const serviceList = [
     description:
       "We design and install reliable network infrastructure and communication systems to ensure seamless connectivity, data transfer, and efficient operations.",
   },
+   {
+    icon: <FaHardHat />,
+    title: "Project Management Services",
+    description:
+      "We provide comprehensive project management services to ensure the successful planning, execution, and delivery of engineering projects on time and within budget.",
+  },
 
 ];
 
@@ -86,7 +86,8 @@ const Services = () => {
             <div className="w-full">
                 <PageHero             
                     title="Services"
-                    subtitle="From solar installation to maintenance and energy consultation, we provide comprehensive engineering solutions tailored to your needs."
+                    subtitle="Professional building and engineering solutions delivered with
+                     quality workmanship, safety, precision, and lasting value."
                 />
             </div>
 
@@ -105,9 +106,9 @@ const Services = () => {
                         </h2>
 
                         <p className="mt-6 text-gray-600 leading-8">
-                        From renewable energy installations to HVAC & Mechanical Systems,
-                        we provide innovative engineering solutions that improve
-                        efficiency, reliability, and sustainability.
+                            Professional building and engineering services delivered 
+                            with quality workmanship, precision, safety, and attention to 
+                            detail. We build with purpose, quality, and lasting value.
                         </p>
 
                     </div>
@@ -135,10 +136,13 @@ const Services = () => {
                             {serviceList.description}
                             </p>
 
-                            <button className="mt-8 flex items-center gap-2 text-yellow-500 font-semibold hover:gap-3 transition-all">
+                            <Link
+                                to="/booking"
+                                className="mt-8 flex items-center gap-2 text-yellow-500 font-semibold hover:gap-3 transition-all"
+                            >
                             BOOK SERVICE
                             <FaArrowRight />
-                            </button>
+                            </Link>
 
                         </div>
 

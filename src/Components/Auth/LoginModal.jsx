@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAuthInstance } from "../../firebase/firebase";
+import { getAuthInstance } from "../../Firebase/firebase";
 import GoogleButton from "./GoogleButton";
 
 

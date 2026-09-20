@@ -3,9 +3,8 @@ import { motion } from "framer-motion";
 import electrical_design from "../assets/electrical_design.jpg";
 import HVAC from "../assets/HVAC.jpg";
 import Water_System from "../assets/Water System.jpg";
-import Fire from "../assets/Fire Alarm.jpg";
+import Energy from "../assets/Energy.jpg";
 import Solar from "../assets/Solar.jpg";
-import Reduction from "../assets/Reduction.jpg";
 import Smart from "../assets/Smart Home.jpg"
 import CCTV from "../assets/CCTV.jpg";
 import Network from "../assets/Network.jpg";
@@ -15,20 +14,20 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Electrical System Design & Installation",
+    title: "Electrical Services & Installation",
     description:
       "We design and install safe, reliable, and efficient electrical systems for residential, commercial, and industrial projects, ensuring compliance with industry standards and long-term performance.",
     image: electrical_design,
   },
  
   {
-    title: "HVAC & Mechanical Systems Integration",
+    title: "HVAC & Mechanical Services",
     description:
       "We integrate HVAC and mechanical systems to improve comfort, energy efficiency, and seamless operation in residential, commercial, and industrial facilities.",
     image: HVAC
   },
   {
-    title: "Plumbing & Water System",
+    title: "Plumbing Services",
     description:
       "We design and install reliable plumbing and water systems that ensure efficient water supply, drainage, and long-lasting performance for every project.",
     image: Water_System
@@ -37,18 +36,14 @@ const services = [
     title: "Solar Power System Design & Installation",
     description:
       "We design and install efficient solar power systems that deliver reliable, cost-effective, and sustainable energy solutions for homes, businesses, and industries.",
-    image: Fire
+    image: Solar
 
   },
-  {
-    title: "Hybrid Energy System (Solar + Grid + Generator)",
-    description:"We design and integrate hybrid energy systems that combine solar, grid, and generator power for uninterrupted, efficient, and cost-effective energy supply.",
-    image: Solar
-  },
+
   {
     title: "Energy Optimization & Cost Reduction Solution",
     description: "We help reduce energy costs by optimizing power usage, improving system efficiency, and implementing smart energy management solutions.",
-    image: Reduction
+    image: Energy
   },
   {
     title: "Smart Home & Building Automation",
@@ -107,17 +102,19 @@ export default function Services() {
                                 {service.description}
                             </p>
 
-                            <button className="w-50 py-3 bg-yellow-400 rounded-3xl"> 
-                              <Link to="/services">
-                                Learn More
-                              </Link>
-                            </button>
+                            <Link
+                              to="/services"
+                              className="inline-flex w-50 items-center justify-center rounded-3xl bg-yellow-400 py-3"
+                            >
+                              Learn More
+                            </Link>
 
-                            <button className="w-50 text-white py-3 mt-3 text-bold border border-slate-100/40 bg-slate-50/20 backdrop-blur-xl transition-300 rounded-3xl"> 
-                              <Link to="/booking">
-                                Book Service
-                              </Link>
-                            </button>
+                            <Link
+                              to="/booking"
+                              className="mt-3 inline-flex w-50 items-center justify-center rounded-3xl border border-slate-100/40 bg-slate-50/20 py-3 text-white backdrop-blur-xl transition-300"
+                            >
+                              Book Service
+                            </Link>
                         </motion.section>
                             </div>
                     

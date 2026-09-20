@@ -2,14 +2,11 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation,
 } from "react-router-dom";
 
 import {
   Suspense,
   lazy,
-  useEffect,
-  useState,
 } from "react";
 
 import { useAuth } from "./Context/AuthContext.jsx";
@@ -21,9 +18,11 @@ import AuthModal from "./Components/Auth/AuthModal";
 import ScrollToTop from "./Components/ScrollToTop";
 
 import CustomerDetails from "./Pages/adminDashboard/customerDetails";
+import Projects from "./Pages/adminDashboard/Projects/projects.jsx";
 
 import { isAdmin } from "./utils/admin";
 import AdminLayout from "./Layout/adminLayout";
+import ProjectDetails from "./Pages/ProjectDetails";
 
 const Home = lazy(() => import("./Pages/Home"));
 const About = lazy(() => import("./Pages/About"));
@@ -55,8 +54,6 @@ function ProtectedRoute({ children }) {
     openLogin,
     openSignup,
   } = useAuth();
-
-  const location = useLocation();
 
   if (loading) {
     return <Preloader />;
@@ -189,25 +186,10 @@ function AdminRoute({ children }) {
 // ======================================================
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
   const {
     authModalOpen,
     closeAuthModal,
   } = useAuth();
-
-  useEffect(() => {
-    const timer = setTimeout(
-      () => setLoading(false),
-      2000
-    );
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Preloader />;
-  }
 
   return (
     <>
@@ -261,6 +243,19 @@ function App() {
           <Route
             path="/trackRepair"
             element={<TrackRepair />}
+          />
+
+          {/* ========================================= */}
+          {/* PROJECT DETAILS */}
+          {/* ========================================= */}
+
+          <Route
+            path="/dashboard/project/:projectId"
+            element={
+              <ProtectedRoute>
+                <ProjectDetails />
+              </ProtectedRoute>
+            }
           />
 
 
@@ -347,6 +342,12 @@ function App() {
             <Route
               path="customers/:customerId"
               element={<CustomerDetails />}
+            />
+
+            {/* /adminDashboard/projects */}
+            <Route
+              path="projects"
+              element={<Projects />}
             />
 
             {/* /adminDashboard/settings */}

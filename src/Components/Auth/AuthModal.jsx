@@ -102,8 +102,9 @@ const AuthModal = ({
 
         case "auth/network-request-failed":
           setError(
-            "No internet connection. Please check your connection and try again."
+            `Firebase network error: ${err.message}`
           );
+          console.error("FULL FIREBASE ERROR:", err);
           break;
 
         default:
@@ -127,13 +128,25 @@ const AuthModal = ({
       const auth = await getAuthInstance();
       const googleProvider = await getGoogleProvider();
 
-      const { signInWithPopup } =
+      const {
+        signInWithPopup,
+        signInWithRedirect,
+      } =
         await import("firebase/auth");
 
-      await signInWithPopup(
-        auth,
-        googleProvider
-      );
+      const isMobile = window.matchMedia(
+        "(max-width: 767px)"
+      ).matches;
+
+      if (isMobile) {
+        await signInWithRedirect(
+          auth,
+          googleProvider
+        );
+        return;
+      }
+
+      await signInWithPopup(auth, googleProvider);
 
       await Swal.fire({
         icon: "success",
@@ -154,6 +167,12 @@ const AuthModal = ({
       ) {
         setError(
           "No internet connection. Please check your connection and try again."
+        );
+      } else if (
+        err.code === "auth/unauthorized-domain"
+      ) {
+        setError(
+          `Google sign-in is not enabled for ${window.location.hostname}. Add this domain in Firebase Console > Authentication > Settings > Authorized domains.`
         );
       } else {
         setError(

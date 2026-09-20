@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PortfolioModal from "../Components/portfolioModal";
 import { MapPin } from "lucide-react";
-import Navbar from '../Components/navbar';
 import PageHero from "../Components/pageHero";
 import projects from "../Data/projects";
 import Footer from "../Components/footer";

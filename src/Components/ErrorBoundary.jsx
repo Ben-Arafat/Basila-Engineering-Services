@@ -20,7 +20,7 @@ class ErrorBoundary extends Component {
         <div className="flex min-h-screen items-center justify-center bg-slate-950 p-6 text-center text-white">
           <div>
             <h1 className="text-2xl font-bold">Something went wrong</h1>
-            <p className="mt-3 text-slate-300">Please refresh the page and try again.</p>
+            <p className="mt-3 text-slate-300">Please refresh the page and try again or try reconnecting your internet connection.</p>
           </div>
         </div>
       );

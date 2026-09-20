@@ -1,6 +1,5 @@
 import { useState } from "react";
 import '../App.css';
-import Navbar from '../Components/navbar';
 import PageHero from "../Components/pageHero";
 import Footer from "../Components/footer";
 import {
@@ -135,7 +134,7 @@ const Contact = () => {
                             <div>
                             <h3 className="font-bold">Email</h3>
                             <p className="text-gray-600">
-                                sunergy0@gmail.com
+                                basilaengineeringservicesltd@gmail.com
                             </p>
                             </div>
                         </div>

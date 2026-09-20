@@ -4,6 +4,7 @@ import {
   FiCalendar,
   FiMail,
   FiUsers,
+  FiFolder,
   FiSettings,
   FiLogOut,
   FiX,
@@ -22,6 +23,7 @@ const Sidebar = ({ onClose }) => {
       path: "/adminDashboard",
       icon: <FiHome />,
     },
+    
     {
       name: "Bookings",
       path: "/adminDashboard/bookings",
@@ -36,6 +38,11 @@ const Sidebar = ({ onClose }) => {
       name: "Customers",
       path: "/adminDashboard/customers",
       icon: <FiUsers />,
+    },
+    {
+      name: "Projects",
+      path: "/adminDashboard/projects",
+      icon: <FiFolder />,
     },
     {
       name: "Settings",
@@ -57,7 +64,7 @@ const Sidebar = ({ onClose }) => {
   };
 
   return (
-    <aside className="flex h-screen w-full flex-col bg-slate-900 p-6 text-white">
+    <aside className="flex h-screen w-full flex-col overflow-hidden bg-slate-900 p-6 text-white">
 
       {/* HEADER */}
       <div className="flex shrink-0 items-start justify-between">
@@ -85,7 +92,7 @@ const Sidebar = ({ onClose }) => {
       </div>
 
       {/* NAVIGATION */}
-      <nav className="mt-10 flex-1 space-y-2 overflow-y-auto">
+      <nav className="mt-10 flex-1 space-y-2 overflow-hidden">
 
         {menuItems.map((item) => (
           <NavLink

@@ -32,6 +32,12 @@ const Messages = () => {
           ...messageDoc.data(),
         }));
 
+        messageData.sort(
+          (a, b) =>
+            (b.createdAt?.toMillis?.() || 0) -
+            (a.createdAt?.toMillis?.() || 0)
+        );
+
         setMessages(messageData);
       } catch (error) {
         console.error("Messages Error:", error);

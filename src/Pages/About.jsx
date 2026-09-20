@@ -1,5 +1,4 @@
 import '../App.css';
-import Navbar from '../Components/navbar';
 import PageHero from "../Components/pageHero";
 import Footer from "../Components/footer";
 import CTA from "../Components/CTA";
@@ -35,7 +34,7 @@ const About = () => {
 
                     <div>
                         <img
-                        src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1200"
+                        src="https://res.cloudinary.com/cwshpuof/image/upload/v1789748466/2FF8D283-7180-42B2-B55A-E824D8FEC9A2_csrov1.png"
                         alt="Engineering Team"
                         className="rounded-3xl shadow-xl object-cover w-full h-[500px]"
                         />
@@ -113,12 +112,11 @@ const About = () => {
                 
                 <section className="bg-slate-900 py-30">
 
-                    <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-3 gap-8 text-center">
 
                     {[
-                        ["120+", "Projects Completed"],
-                        ["15MW+", "Installed Capacity"],
-                        ["40+", "Engineering Experts"],
+                        ["80+", "Projects Completed"],
+                        ["20+", "Engineering Experts"],
                         ["98%", "Client Satisfaction"],
                     ].map(([number, title]) => (
 

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const NetworkStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [checking, setChecking] = useState(false);
 
   const checkConnection = async () => {
     if (!navigator.onLine) {
@@ -11,8 +10,6 @@ const NetworkStatus = () => {
     }
 
     try {
-      setChecking(true);
-
       const response = await fetch(
         "https://www.gstatic.com/generate_204",
         {
@@ -22,10 +19,8 @@ const NetworkStatus = () => {
       );
 
       setIsOnline(response.ok || response.status === 204);
-    } catch (error) {
+    } catch {
       setIsOnline(false);
-    } finally {
-      setChecking(false);
     }
   };
 

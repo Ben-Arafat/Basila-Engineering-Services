@@ -4,6 +4,10 @@ import {
   getDocs,
   doc,
   updateDoc,
+  addDoc,
+  query,
+  where,
+  serverTimestamp,
 } from "firebase/firestore";
 import { getDbInstance } from "../../Firebase/firebase";
 
@@ -19,6 +23,8 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [updatingId, setUpdatingId] = useState(null);
+  const [creatingProjectId, setCreatingProjectId] = useState(null);
+  const [projectBookingIds, setProjectBookingIds] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -57,14 +63,37 @@ const Bookings = () => {
 
               // Connect booking to customer
               customerEmail:
-                customerMap[booking.userId] || "Unknown customer",
+                customerMap[booking.userId] ||
+                booking.userEmail ||
+                "Unknown customer",
             };
           }
         );
 
+        bookingData.sort(
+          (a, b) =>
+            (b.createdAt?.toMillis?.() || 0) -
+            (a.createdAt?.toMillis?.() || 0)
+        );
+
         setBookings(bookingData);
+
+        // Check which bookings already have projects
+        const projectsSnapshot = await getDocs(
+          collection(db, "projects")
+        );
+
+        const existingProjectBookingIds =
+          projectsSnapshot.docs
+            .map((projectDoc) => projectDoc.data().bookingId)
+            .filter(Boolean);
+
+        setProjectBookingIds(
+          existingProjectBookingIds
+        );
       } catch (error) {
         console.error("Bookings Error:", error);
+
         setError("Unable to load bookings.");
       } finally {
         setLoading(false);
@@ -115,6 +144,95 @@ const Bookings = () => {
     }
   };
 
+  // ==========================================
+  // CREATE PROJECT FROM BOOKING
+  // ==========================================
+
+  const handleCreateProject = async (booking) => {
+    try {
+      setCreatingProjectId(booking.id);
+      setError("");
+
+      const db = await getDbInstance();
+
+      // Check if this booking already has a project
+      const projectsQuery = query(
+        collection(db, "projects"),
+        where("bookingId", "==", booking.id)
+      );
+
+      const existingProjects =
+        await getDocs(projectsQuery);
+
+      if (!existingProjects.empty) {
+        setProjectBookingIds((previous) =>
+          previous.includes(booking.id)
+            ? previous
+            : [...previous, booking.id]
+        );
+
+        setError(
+          "A project already exists for this booking."
+        );
+
+        return;
+      }
+
+      // Create the project using the booking information
+      await addDoc(collection(db, "projects"), {
+        bookingId: booking.id,
+
+        customerId: booking.userId,
+
+        customerEmail:
+          booking.customerEmail ||
+          booking.userEmail ||
+          "",
+
+        projectName:
+          booking.service ||
+          "New Project",
+
+        description:
+          booking.description ||
+          "",
+
+        location:
+          booking.location ||
+          "",
+
+        status: "Planning",
+
+        progress: 0,
+
+        startDate: null,
+
+        expectedEndDate: null,
+
+        createdAt: serverTimestamp(),
+
+        updatedAt: serverTimestamp(),
+      });
+
+      // Mark booking as having a project
+      setProjectBookingIds((previous) => [
+        ...previous,
+        booking.id,
+      ]);
+    } catch (error) {
+      console.error(
+        "Create Project Error:",
+        error
+      );
+
+      setError(
+        "Unable to create project. Please try again."
+      );
+    } finally {
+      setCreatingProjectId(null);
+    }
+  };
+
   const getStatusStyle = (status) => {
     switch (status) {
       case "Confirmed":
@@ -140,6 +258,7 @@ const Bookings = () => {
       {/* HEADER */}
 
       <div className="mb-8">
+
         <h1 className="text-3xl font-bold text-slate-900">
           Bookings
         </h1>
@@ -147,6 +266,7 @@ const Bookings = () => {
         <p className="mt-2 text-slate-500">
           Manage customer bookings and job status.
         </p>
+
       </div>
 
 
@@ -162,28 +282,34 @@ const Bookings = () => {
       {/* LOADING */}
 
       {loading ? (
+
         <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
+
           <p className="text-slate-500">
             Loading bookings...
           </p>
+
         </div>
 
       ) : bookings.length === 0 ? (
 
         <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
+
           <p className="text-slate-500">
             No bookings found.
           </p>
+
         </div>
 
       ) : (
 
         <>
+
           {/* DESKTOP */}
 
           <div className="hidden overflow-x-auto rounded-2xl bg-white shadow-sm md:block">
 
-            <table className="w-full min-w-[1200px]">
+            <table className="w-full min-w-[1350px]">
 
               <thead className="border-b bg-slate-50">
 
@@ -211,6 +337,10 @@ const Bookings = () => {
 
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-600">
                     Date
+                  </th>
+
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-slate-600">
+                    Action
                   </th>
 
                 </tr>
@@ -315,6 +445,47 @@ const Bookings = () => {
                             .toDate()
                             .toLocaleDateString()
                         : "—"}
+
+                    </td>
+
+
+                    {/* ACTION */}
+
+                    <td className="px-6 py-5">
+
+                      <button
+                        type="button"
+                        disabled={
+                          creatingProjectId ===
+                            booking.id ||
+                          projectBookingIds.includes(
+                            booking.id
+                          )
+                        }
+                        onClick={() =>
+                          handleCreateProject(
+                            booking
+                          )
+                        }
+                        className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                          projectBookingIds.includes(
+                            booking.id
+                          )
+                            ? "cursor-not-allowed bg-green-100 text-green-700"
+                            : "bg-yellow-500 text-white hover:bg-yellow-600"
+                        }`}
+                      >
+
+                        {creatingProjectId ===
+                        booking.id
+                          ? "Creating..."
+                          : projectBookingIds.includes(
+                              booking.id
+                            )
+                          ? "Project Created"
+                          : "Create Project"}
+
+                      </button>
 
                     </td>
 
@@ -439,11 +610,49 @@ const Bookings = () => {
 
                 </p>
 
+
+                {/* CREATE PROJECT */}
+
+                <button
+                  type="button"
+                  disabled={
+                    creatingProjectId ===
+                      booking.id ||
+                    projectBookingIds.includes(
+                      booking.id
+                    )
+                  }
+                  onClick={() =>
+                    handleCreateProject(
+                      booking
+                    )
+                  }
+                  className={`mt-4 w-full rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                    projectBookingIds.includes(
+                      booking.id
+                    )
+                      ? "cursor-not-allowed bg-green-100 text-green-700"
+                      : "bg-yellow-500 text-white hover:bg-yellow-600"
+                  }`}
+                >
+
+                  {creatingProjectId ===
+                  booking.id
+                    ? "Creating Project..."
+                    : projectBookingIds.includes(
+                        booking.id
+                      )
+                    ? "Project Created"
+                    : "Create Project"}
+
+                </button>
+
               </div>
 
             ))}
 
           </div>
+
         </>
 
       )}

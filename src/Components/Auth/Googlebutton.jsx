@@ -11,12 +11,21 @@ try{
 
 const auth = await getAuthInstance();
 const provider = await getGoogleProvider();
-const { signInWithPopup } = await import("firebase/auth");
+const {
+	signInWithPopup,
+	signInWithRedirect,
+} = await import("firebase/auth");
 
-await signInWithPopup(
-auth,
-provider
-);
+const isMobile = window.matchMedia(
+	"(max-width: 767px)"
+).matches;
+
+if (isMobile) {
+	await signInWithRedirect(auth, provider);
+	return;
+}
+
+await signInWithPopup(auth, provider);
 
 
 alert("Google login successful");
@@ -24,7 +33,13 @@ alert("Google login successful");
 
 }catch(error){
 
-console.log(error.message);
+if (error.code === "auth/unauthorized-domain") {
+	console.error(
+		`Authorize ${window.location.hostname} in Firebase Console > Authentication > Settings > Authorized domains.`
+	);
+} else {
+	console.error(error.message);
+}
 
 }
 
