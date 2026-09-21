@@ -140,11 +140,25 @@ const AuthModal = ({
         "(max-width: 767px)"
       ).matches;
 
-      if (isMobile) {
-        await setPersistence(
-          auth,
-          browserLocalPersistence
-        );
+      await setPersistence(
+        auth,
+        browserLocalPersistence
+      );
+
+      try {
+        await signInWithPopup(auth, googleProvider);
+      } catch (popupError) {
+        if (
+          !isMobile ||
+          ![
+            "auth/popup-blocked",
+            "auth/operation-not-supported-in-this-environment",
+            "auth/cancelled-popup-request",
+          ].includes(popupError.code)
+        ) {
+          throw popupError;
+        }
+
         window.localStorage.setItem(
           "authRedirectTarget",
           "/dashboard"
@@ -155,8 +169,6 @@ const AuthModal = ({
         );
         return;
       }
-
-      await signInWithPopup(auth, googleProvider);
 
       await Swal.fire({
         icon: "success",
