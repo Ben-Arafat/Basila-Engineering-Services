@@ -41,10 +41,26 @@ export function AuthProvider({ children }) {
 
         const auth = await getAuthInstance();
 
-        const { onAuthStateChanged } =
+        const {
+          getRedirectResult,
+          onAuthStateChanged,
+        } =
           await import("firebase/auth");
 
         if (!mounted) return;
+
+        try {
+          await getRedirectResult(auth);
+        } catch (error) {
+          console.error(
+            "Firebase redirect sign-in error:",
+            error
+          );
+
+          if (mounted) {
+            setAuthError(error);
+          }
+        }
 
         unsubscribe = onAuthStateChanged(
           auth,
@@ -54,6 +70,18 @@ export function AuthProvider({ children }) {
             setCurrentUser(user);
             setLoading(false);
             setAuthError(null);
+
+            const redirectTarget =
+              window.localStorage.getItem(
+                "authRedirectTarget"
+              );
+
+            if (user && redirectTarget) {
+              window.localStorage.removeItem(
+                "authRedirectTarget"
+              );
+              window.location.replace(redirectTarget);
+            }
           },
           (error) => {
             console.error(

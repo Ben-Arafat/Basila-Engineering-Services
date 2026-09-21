@@ -131,6 +131,8 @@ const AuthModal = ({
       const {
         signInWithPopup,
         signInWithRedirect,
+        browserLocalPersistence,
+        setPersistence,
       } =
         await import("firebase/auth");
 
@@ -139,6 +141,14 @@ const AuthModal = ({
       ).matches;
 
       if (isMobile) {
+        await setPersistence(
+          auth,
+          browserLocalPersistence
+        );
+        window.localStorage.setItem(
+          "authRedirectTarget",
+          "/dashboard"
+        );
         await signInWithRedirect(
           auth,
           googleProvider
