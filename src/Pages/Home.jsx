@@ -20,7 +20,7 @@ const Home = () => {
       <div className = "px-5 text-center pt-10 h-auto w-full place-items-center">
         <h1 className = "text-white text-2xl lg:text-5xl font-sans font-extrabold lg:font-extrabold antialiased md:subpixel-antialiased">Engineering Excellence. Sustainable Impact.</h1>
         <h2 className = "text-l lg:text-xl font-bold text-white mt-4">
-          We deliver complete building engineering services and solutions
+          Serving projects across Nigeria, West Africa, and beyond.
         </h2>
         <Services />
       </div>

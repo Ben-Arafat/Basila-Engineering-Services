@@ -3,15 +3,15 @@ import { ArrowRight } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "LAN Networking, CCTV & Fire Alarm Installation",
-    location: "Abuja, Nigeria",
+    title: "LAN Networking, CCTV & Fire Alarm System Second Fix Installation for TETFUND Zonal Office",
+    location: "Kaduna, Nigeria",
     image:
       "https://res.cloudinary.com/cwshpuof/image/upload/v1785491110/902b9868-c48c-4a01-9017-c465e64f4964_xbwffm.jpg",
   },
   {
     id: 2,
-    title: "Full Smart Home Automation, Netoworking & CCTV Installation",
-    location: "Kaduna, Nigeria",
+    title: "Full Smart Home Automation, Networking & CCTV Installation",
+    location: "Abuja, Nigeria",
     image:
       "https://res.cloudinary.com/cwshpuof/image/upload/v1785791884/35e52192-6262-44d2-bbc2-9f3ae8505f4e_ifhcfp.jpg",
   },
@@ -20,7 +20,7 @@ const projects = [
     title: "Residential Solar Installation",
     location: "Abuja, Nigeria",
     image:
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490990/bd85f8e3-10ce-470b-b47c-13daca8a6bd9_tugpmr.jpg",
+      "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
   },
 ];
 

@@ -21,7 +21,9 @@ const About = () => {
             <div className=" w-full">
                 <PageHero             
                     title="About Us"
-                    subtitle="We are a multidisciplinary engineering company committed to delivering reliable solar, electrical, and smart building solutions."
+                    subtitle="We are a multidisciplinary engineering company based in Nigeria, delivering
+                    reliable electrical, MEP, energy and smart building solutions for residential,
+                    commercial, industrial, and institutional projects across Nigeria and beyond."
                 />
             
             </div>
@@ -161,32 +163,22 @@ const About = () => {
                         {
                             icon: <FaUsers />,
                             title: "Experienced Engineers",
-                            desc: "Highly qualified multidisciplinary professionals.",
-                        },
-                        {
-                            icon: <FaSolarPanel />,
-                            title: "Renewable Energy Experts",
-                            desc: "Delivering reliable solar and energy solutions.",
-                        },
-                        {
-                            icon: <FaShieldAlt />,
-                            title: "Safety First",
-                            desc: "Every project follows industry safety standards.",
-                        },
-                        {
-                            icon: <FaTools />,
-                            title: "Quality Workmanship",
-                            desc: "Attention to detail from design to commissioning.",
+                            desc: "Proven experience in Power and Building Services.",
                         },
                         {
                             icon: <FaHandshake />,
-                            title: "Client Focused",
-                            desc: "Your satisfaction remains our highest priority.",
+                            title: "Multidisciplinary Team",
+                            desc: "Skilled multidisciplinary team of Engineers and Technicians.",
+                        },
+                        {
+                            icon: <FaShieldAlt />,
+                            title: "Committed Expertise",
+                            desc: "Committed to innovation, safety, and quality services delivery.",
                         },
                         {
                             icon: <FaBolt />,
-                            title: "Modern Technology",
-                            desc: "Using innovative engineering tools and practices.",
+                            title: "Nationwide & International Project Capability",
+                            desc: "Nationwide capability to deliver quality projects.",
                         },
                         ].map((item) => (
 
@@ -231,11 +223,11 @@ const About = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
 
                         {[
-                        "Consultation",
-                        "Site Assessment",
-                        "Engineering Design",
-                        "Installation",
-                        "Maintenance",
+                        {process: "Consultation", description: "Understanding your requirements, goals, and project scope."},
+                        {process: "Site Assessment", description: "Evaluating the site, existing systems, and technical requirements."},
+                        {process: "Engineering Design", description: "Developing practical and efficient solutions tailored to your project."},
+                        {process: "Installation & Commissioning", description: "Developing practical and efficient solutions tailored to your project."},
+                        {process: "Support & Maintenance", description: "Providing ongoing technical support and maintenance to ensure reliable performance."}
                         ].map((step, index) => (
 
                         <div

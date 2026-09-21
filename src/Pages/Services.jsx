@@ -18,11 +18,17 @@ import CTA from "../Components/CTA";
 
 
 const serviceList = [
+    {
+    icon: <FaTools />,
+    title: "Electrical & Building Services",
+    description:
+      "We design and install end-to-end electrical systems that are safe, reliable, and efficient for residential, commercial, and industrial projects, ensuring compliance with industry standards and also delivering building services that enhance comfort, functionality, and long-term performance.",
+  },  
   {
     icon: <FaSolarPanel />,
     title: "Solar Energy Solutions",
     description:
-      "We design and install safe, reliable, and efficient electrical systems for residential, commercial, and industrial projects, ensuring compliance with industry standards and long-term performance.",
+      "We design and install safe, reliable, and efficient solar systems for residential, commercial, and industrial projects, ensuring compliance with industry standards and long-term performance.",
   },
   {
     icon: <FaBolt />,
@@ -35,18 +41,6 @@ const serviceList = [
     title: "Plumbing & Water Services Design",
     description:
       "We design and install reliable plumbing and water systems that ensure efficient water supply, drainage, and long-lasting performance for every project.",
-  },
-  {
-    icon: <FaTools />,
-    title: "Solar Power System Design & Installation",
-    description:
-      "We design and install reliable plumbing and water systems that ensure efficient water supply, drainage, and long-lasting performance for every project.",
-  },
-  {
-    icon: <FaHardHat />,
-    title: "Energy Optimization & Cost Reduction Solution",
-    description:
-      "We help reduce energy costs by optimizing power usage, improving system efficiency, and implementing smart energy management solutions.",
   },
   {
     icon: <FaHardHat />,
@@ -228,32 +222,22 @@ const Services = () => {
                         {
                             icon: <FaUsers />,
                             title: "Experienced Engineers",
-                            desc: "Highly qualified multidisciplinary professionals.",
-                        },
-                        {
-                            icon: <FaSolarPanel />,
-                            title: "Renewable Energy Experts",
-                            desc: "Delivering reliable solar and energy solutions.",
-                        },
-                        {
-                            icon: <FaShieldAlt />,
-                            title: "Safety First",
-                            desc: "Every project follows industry safety standards.",
-                        },
-                        {
-                            icon: <FaTools />,
-                            title: "Quality Workmanship",
-                            desc: "Attention to detail from design to commissioning.",
+                            desc: "Proven experience in Power and Building Services.",
                         },
                         {
                             icon: <FaHandshake />,
-                            title: "Client Focused",
-                            desc: "Your satisfaction remains our highest priority.",
+                            title: "Multidisciplinary Team",
+                            desc: "Skilled multidisciplinary team of Engineers and Technicians.",
+                        },
+                        {
+                            icon: <FaShieldAlt />,
+                            title: "Committed Expertise",
+                            desc: "Committed to innovation, safety, and quality services delivery.",
                         },
                         {
                             icon: <FaBolt />,
-                            title: "Modern Technology",
-                            desc: "Using innovative engineering tools and practices.",
+                            title: "Nationwide & International Project Capability",
+                            desc: "Nationwide capability to deliver quality projects.",
                         },
                         ].map((item) => (
 

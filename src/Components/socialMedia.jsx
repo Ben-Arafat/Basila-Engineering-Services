@@ -29,15 +29,9 @@ const SocialMedia = () => {
     color: "hover:bg-blue-700",
   },
   {
-    name: "X (Twitter)",
-    icon: <FaXTwitter size={24} />,
-    link: "#",
-    color: "hover:bg-black",
-  },
-  {
-    name: "YouTube",
+    name: "Whatsapp",
     icon: <FaYoutube size={24} />,
-    link: "#",
+    link: "https://wa.me/message/P2QEZXQMFJH6N1",
     color: "hover:bg-red-600",
   },
     ]

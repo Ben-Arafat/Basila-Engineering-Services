@@ -106,7 +106,7 @@ const Contact = () => {
                     <div>
 
                         <span className="text-yellow-500 uppercase font-semibold tracking-widest">
-                        Contact Information
+                        GET IN TOUCH
                         </span>
 
                         <h2 className="text-4xl font-bold mt-4">
@@ -114,9 +114,8 @@ const Contact = () => {
                         </h2>
 
                         <p className="text-gray-600 mt-6 leading-8">
-                        Whether you're planning a residential solar installation,
-                        commercial electrical project, or industrial engineering
-                        solution, we'd love to hear from you.
+                        Whether your project is in Nigeria or abroad , our team is ready to discuss
+                        your requirements and develop the right engineering solution.
                         </p>
 
                         <div className="mt-10 space-y-6">
@@ -125,7 +124,7 @@ const Contact = () => {
                             <FaPhoneAlt className="text-yellow-500 text-2xl mt-1"/>
                             <div>
                             <h3 className="font-bold">Phone</h3>
-                            <p className="text-gray-600">+234 904 862 3223 || +234 703 210 8771 </p>
+                            <p className="text-gray-600">+234 904 862 3223 </p>
                             </div>
                         </div>
 

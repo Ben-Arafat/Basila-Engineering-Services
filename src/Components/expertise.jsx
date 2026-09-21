@@ -6,7 +6,7 @@ const Expertise = () => {
       title: "Electrical Engineers",
       icon: "⚡",
       description:
-        "Design, install, and optimize electrical systems for safe and efficient solar power generation.",
+        "Design, install, and optimize electrical systems for safe and efficient electrical power generation.",
     },
     {
       title: "Mechanical Engineers",
@@ -49,8 +49,8 @@ const Expertise = () => {
 
           <p className="text-white mt-5">
             We combine engineering expertise, technical excellence, and project
-            management experience to deliver reliable solar energy solutions
-            tailored to every client's needs.
+            management experience to deliver reliable efficient, and professionally
+            executed solutions tailored to every client's needs. 
           </p>
         </div>
 

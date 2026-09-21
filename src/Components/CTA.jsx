@@ -12,9 +12,9 @@ const CTA = () => {
           </h2>
 
           <p className="mt-6 text-yellow-100 text-lg leading-8">
-            Whether you need solar installations, electrical engineering,
-            industrial automation, or technical consultancy, our team is ready
-            to bring your vision to life.
+           Whether you need electrical and MEP services, solar solutions, smart home automation,
+           CCTV, networking, or technical engineering support, our team is ready to turn your vision into a
+           reliable, professionally engineered solution.
           </p>
 
           <Link to="/contact">

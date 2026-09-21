@@ -18,7 +18,7 @@ import AuthModal from "./Components/Auth/AuthModal";
 import ScrollToTop from "./Components/ScrollToTop";
 
 import CustomerDetails from "./Pages/adminDashboard/customerDetails";
-import Projects from "./Pages/adminDashboard/Projects/projects.jsx";
+import Projects from "./Pages/adminDashboard/Projects/projects";
 
 import { isAdmin } from "./utils/admin";
 import AdminLayout from "./Layout/adminLayout";

@@ -26,10 +26,11 @@ const Footer = () => {
             </h2>
 
             <p className="mt-5 leading-7 text-slate-800  max-w-md">
-              Delivering reliable solar energy solutions through expert
-              engineering, quality installations, and exceptional customer
-              support. We help homes and businesses transition to clean,
-              sustainable energy.
+              Basila Engineering Services is forward-thinking engineering company
+              delivering integrated building services and energy solutions across Nigeria.
+              We specialize in designing and executing intelligent, energy-efficient and
+              fully automated bulding systems that enhance comfort, reduce operational cost and
+              increase property value.
             </p>
 
             <div className="flex gap-4 mt-8">
@@ -97,6 +98,12 @@ const Footer = () => {
               <li className="text-slate-800">Electrical & Building System</li>
               <li className="text-slate-800">Energy Solution (Solar & Power Systems)</li>
               <li className="text-slate-800">Smart Building & Automation</li>
+              <li className="text-slate-800">Plumbing & Water System</li>
+              <li className="text-slate-800">Energy Optimization & Cost Reduction Solution</li>
+              <li className="text-slate-800">CCTV, Access Control & Surveillance System</li>
+              <li className="text-slate-800">Networking & Communication System</li>
+              <li className="text-slate-800">Project Management & Consultation</li>
+              
             </ul>
           </div>
 
@@ -130,7 +137,7 @@ const Footer = () => {
 
               <div className="flex gap-3">
                 <HiOutlineEnvelope className="text-slate-800 text-xl" />
-                <p className="text-slate-800">sunergy0@gmail.com</p>
+                <p className="text-slate-800">basilaengineeringservicesltd@gmail.com</p>
               </div>
 
             </div>

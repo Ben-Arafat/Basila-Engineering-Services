@@ -1,28 +1,24 @@
 const projects = [
   {
     id: 1,
-    title: "Residential Solar Installation",
-    location: "Abuja, Nigeria",
+    title: "5.6kWp Solar PV System | 12kW Inverter | 17.5kWh Battery Storage - Residential Project",
+    location: "Jos, Nigeria",
     category: "Completed Project",
-    image: "https://res.cloudinary.com/cwshpuof/image/upload/v1785490995/bd85f8e3-10ce-470b-b47c-13daca8a6bd9_qlxcfd.jpg",
+    image: "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
     images: [
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490995/bd85f8e3-10ce-470b-b47c-13daca8a6bd9_qlxcfd.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785791882/dcc58a1a-b110-48ac-80c8-60d93f825df7_f0eojq.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490987/76e2db8a-6d24-4aaf-9925-63d323bc0f70_p0fwtv.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490987/c5e81df5-5688-4f8e-9bb8-c70f8c199a34_dgsdvq.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490988/d46f9088-fa2d-4995-8bdd-0709a4200c51_fhetat.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1785490987/4d43c4d7-3b3a-4a07-bac2-0115ebf703c8_dsnb5d.jpg",
+      "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
+      "https://res.cloudinary.com/cwshpuof/image/upload/v1789907562/ec2fda6d-9dd1-4cd1-937e-882c73f7b523_j1bgzw.jpg",
     ],
     description:
-      "A complete rooftop solar solution for a modern residential home, designed to reduce energy costs while improving reliability.",
+      "A 5.6kWp solar PV system with a 12kW inverter and 17.5kWh battery storage for a residential property in Jos, Nigeria.",
     challenge:
-      "The client needed a sustainable system that could power essential loads during frequent grid interruptions.",
+      "The company needed a dependable power strategy to reduce bill volatility and improve environmental performance.",
     solution:
-      "We installed a high-efficiency solar array with battery backup and intelligent monitoring for round-the-clock performance.",
+      "We delivered a scalable solar rooftop system with energy monitoring and low-maintenance performance tracking.",
     completed: "Completed Project",
-    client: "Mr. Ibrahim Yusuf",
-    capacity: "6.8 kW system with 10 kWh storage",
-    services: ["Solar Design", "Installation", "Battery Backup"],
+    client: "BluePeak Consulting",
+    capacity: "12.4 kW commercial rooftop system",
+    services: ["Electrical Services","Solar Installation"],
   },
   {
     id: 2,
@@ -104,10 +100,10 @@ const projects = [
     title: "5kW, 2.5kWh Residential Solar PV System Installation",
     location: "Zaria, Nigeria",
     category: "Completed Project",
-    image: "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
+    image: "https://res.cloudinary.com/cwshpuof/image/upload/v1785535981/2a711a0b-6b0c-4859-a1b8-3383ea84525e_kixoqn.jpg",
     images: [
             "https://res.cloudinary.com/cwshpuof/image/upload/v1785535981/2a711a0b-6b0c-4859-a1b8-3383ea84525e_kixoqn.jpg",
-      "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
+      "https://res.cloudinary.com/cwshpuof/image/upload/v1785791882/dcc58a1a-b110-48ac-80c8-60d93f825df7_f0eojq.jpg",
       "https://res.cloudinary.com/cwshpuof/image/upload/v1789907562/ec2fda6d-9dd1-4cd1-937e-882c73f7b523_j1bgzw.jpg",
     ],
     description:
