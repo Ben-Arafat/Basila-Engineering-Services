@@ -48,7 +48,8 @@ service cloud.firestore {
     }
 
     match /projects/{projectId} {
-      allow read: if isAdmin() || isProjectCustomer(projectId);
+      allow read: if isAdmin() ||
+        (signedIn() && resource.data.customerId == request.auth.uid);
       allow create, update, delete: if isAdmin();
 
       match /{subcollection}/{documentId} {
