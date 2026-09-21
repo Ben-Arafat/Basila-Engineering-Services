@@ -27,7 +27,7 @@ import {
 
 import { getDbInstance } from "../../../Firebase/firebase";
 
-import ManageProjectModal from "./ManageProjectModal";
+import ManageProjectModal from "./manageProjectModal";
 
 const ADMIN_UID = "tjoY9a9YqGQ8aU0Zbayc0OO93pp1";
 const ADMIN_EMAIL = "admin@basilaengineering.com";
