@@ -83,7 +83,25 @@ export function AuthProvider({ children }) {
         );
 
         try {
-          await getRedirectResult(auth);
+          const redirectResult =
+            await getRedirectResult(auth);
+
+          if (redirectResult?.user && mounted) {
+            setCurrentUser(redirectResult.user);
+            setLoading(false);
+
+            const redirectTarget =
+              window.localStorage.getItem(
+                "authRedirectTarget"
+              );
+
+            if (redirectTarget) {
+              window.localStorage.removeItem(
+                "authRedirectTarget"
+              );
+              window.location.replace(redirectTarget);
+            }
+          }
         } catch (error) {
           console.error(
             "Firebase redirect sign-in error:",
