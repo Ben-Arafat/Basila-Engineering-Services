@@ -179,7 +179,7 @@ const AuthModal = ({
       });
 
       onClose?.();
-      navigate("/dashboard");
+      window.location.replace("/dashboard");
 
     } catch (err) {
       console.error("Google Sign-In Error:", err);
