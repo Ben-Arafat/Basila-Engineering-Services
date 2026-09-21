@@ -231,7 +231,7 @@ const About = () => {
                         ].map((step, index) => (
 
                         <div
-                            key={step}
+                            key={step.process}
                             className="bg-white rounded-3xl p-8 text-center shadow-md"
                         >
                             <div className="w-14 h-14 mx-auto rounded-full bg-yellow-500 text-white flex items-center justify-center text-xl font-bold">
@@ -239,8 +239,12 @@ const About = () => {
                             </div>
 
                             <h3 className="mt-6 font-semibold text-xl">
-                            {step}
+                            {step.process}
                             </h3>
+
+                            <p className="mt-3 text-sm leading-6 text-gray-600">
+                            {step.description}
+                            </p>
                         </div>
 
                         ))}
