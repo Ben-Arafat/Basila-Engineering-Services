@@ -49,19 +49,6 @@ export function AuthProvider({ children }) {
 
         if (!mounted) return;
 
-        try {
-          await getRedirectResult(auth);
-        } catch (error) {
-          console.error(
-            "Firebase redirect sign-in error:",
-            error
-          );
-
-          if (mounted) {
-            setAuthError(error);
-          }
-        }
-
         unsubscribe = onAuthStateChanged(
           auth,
           (user) => {
@@ -69,7 +56,6 @@ export function AuthProvider({ children }) {
 
             setCurrentUser(user);
             setLoading(false);
-            setAuthError(null);
 
             const redirectTarget =
               window.localStorage.getItem(
@@ -95,6 +81,20 @@ export function AuthProvider({ children }) {
             setAuthError(error);
           }
         );
+
+        try {
+          await getRedirectResult(auth);
+        } catch (error) {
+          console.error(
+            "Firebase redirect sign-in error:",
+            error
+          );
+
+          if (mounted) {
+            setAuthError(error);
+            setLoading(false);
+          }
+        }
       } catch (error) {
         console.error(
           "Auth initialization error:",

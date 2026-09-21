@@ -189,6 +189,7 @@ function App() {
   const {
     authModalOpen,
     closeAuthModal,
+    authError,
   } = useAuth();
 
   return (
@@ -198,6 +199,12 @@ function App() {
 
       {/* Main Navbar */}
       <Navbar />
+
+      {authError && (
+        <div className="fixed left-4 right-4 top-20 z-[80] rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 shadow-lg">
+          Authentication error: {authError.message || "Please try again."}
+        </div>
+      )}
 
       {/* Global Authentication Modal */}
       <AuthModal
