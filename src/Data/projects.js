@@ -2,7 +2,7 @@ const projects = [
   {
     id: 1,
     title: "5.6kWp Solar PV System | 12kW Inverter | 17.5kWh Battery Storage - Residential Project",
-    location: "Jos, Nigeria",
+    location: "Abuja, Nigeria",
     category: "Completed Project",
     image: "https://res.cloudinary.com/cwshpuof/image/upload/v1789907563/6389acab-4576-428b-b88b-63ea3f304b11_lcpzfx.jpg",
     images: [

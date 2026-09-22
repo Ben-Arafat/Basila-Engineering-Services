@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import AuthModal from "./Auth/AuthModal";
 import { useAuth } from "../Context/AuthContext.jsx";
 import { getAuthInstance } from "../Firebase/firebase";
+import { isAdmin as checkIsAdmin } from "../utils/admin";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
@@ -17,10 +18,7 @@ const Navbar = () => {
   const isAdminPage =
     location.pathname.startsWith("/adminDashboard");
 
-  const ADMIN_UID = "tjoY9a9YqGQ8aU0Zbayc0OO93pp1";
-
-  const isAdmin =
-    currentUser?.uid === ADMIN_UID;
+  const isAdmin = checkIsAdmin(currentUser);
 
   // Don't show the public navbar inside the admin dashboard
   if (isAdminPage) {

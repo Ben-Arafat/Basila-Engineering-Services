@@ -132,7 +132,7 @@ const Footer = () => {
 
               <div className="flex gap-3">
                 <HiOutlinePhone className="text-slate-800 text-xl" />
-                <p className="text-slate-800">+234 904 862 3223 | +234 703 210 8771</p>
+                <p className="text-slate-800">+234 904 862 3223 </p>
               </div>
 
               <div className="flex gap-3">

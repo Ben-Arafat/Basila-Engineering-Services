@@ -178,7 +178,7 @@ const About = () => {
                         {
                             icon: <FaBolt />,
                             title: "Nationwide & International Project Capability",
-                            desc: "Nationwide capability to deliver quality projects.",
+                            desc: "Nationwide and International capability to deliver quality projects.",
                         },
                         ].map((item) => (
 

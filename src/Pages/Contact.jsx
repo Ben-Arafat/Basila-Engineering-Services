@@ -145,6 +145,10 @@ const Contact = () => {
                             <p className="text-gray-600">
                                 Kaduna Office: No. 3A Rimi Drive, Ungwan Rimi,Kaduna State, Nigeria
                             </p>
+
+                            <p className="text-gray-600">
+                                 Abuja Liason Office: Suit 413 Ammah Ahmadu Bello Way Kado, Abuja, Nigeria
+                            </p>
                             </div>
                         </div>
 
